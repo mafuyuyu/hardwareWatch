@@ -61,7 +61,7 @@ hardwareWatch 常驻托盘，持续记录并写入本地数据库：
 ### 便携模式
 
 在程序目录新建空文件 <code>portable.txt</code>，数据写到 <code>data/</code> 子目录，可整目录拷走。
-默认数据目录：<code>%LOCALAPPDATA%\hardwareWatch\</code>
+默认数据目录：<code>%LOCALAPPDATA%\hardwareWatch\ </code>
 （数据库、日志、导出文件；首次运行会自动从旧的 <code>HwWatch</code> 目录迁移）。
 
 ---
