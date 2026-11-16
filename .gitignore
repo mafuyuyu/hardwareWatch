@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Runtime data (kept outside the repo by default)
+data/
+*.db
+*.db-wal
+*.db-shm
+*.log
+exports/
+_run.out
+portable.txt
+
+# Local tooling / scratch
+.tools/
+_screen.png
+_crop.png
+_forensics.png
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
