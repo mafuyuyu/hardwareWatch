@@ -6,7 +6,7 @@ import json
 import os
 from pathlib import Path
 
-APP_NAME = "HwWatch"
+APP_NAME = "hardwareWatch"
 VERSION = "0.1.0"
 
 DEFAULTS = {
@@ -35,10 +35,40 @@ def is_portable():
     return (app_root() / "portable.txt").exists()
 
 
+_MIGRATED = False
+
+
+def _migrate_legacy():
+    """Move data written under the old brand name, once."""
+    global _MIGRATED
+    if _MIGRATED:
+        return
+    _MIGRATED = True
+    if is_portable():
+        return
+    base = Path(os.environ.get("LOCALAPPDATA") or str(Path.home()))
+    new_dir = base / APP_NAME
+    old_dir = base / "HwWatch"
+    if not new_dir.exists() and old_dir.exists():
+        try:
+            os.rename(old_dir, new_dir)
+        except OSError:
+            return
+    for suffix in ("", "-wal", "-shm"):
+        old_db = new_dir / ("hwwatch.db" + suffix)
+        new_db = new_dir / ("hardwarewatch.db" + suffix)
+        if old_db.exists() and not new_db.exists():
+            try:
+                os.rename(old_db, new_db)
+            except OSError:
+                pass
+
+
 def data_dir():
     if is_portable():
         path = app_root() / "data"
     else:
+        _migrate_legacy()
         base = os.environ.get("LOCALAPPDATA") or str(Path.home())
         path = Path(base) / APP_NAME
     path.mkdir(parents=True, exist_ok=True)
@@ -58,7 +88,7 @@ def export_dir():
 
 
 def db_path():
-    return data_dir() / "hwwatch.db"
+    return data_dir() / "hardwarewatch.db"
 
 
 def settings_path():

@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-"""Create a logon scheduled task that starts HwWatch with highest privileges."""
+"""Create a logon scheduled task that starts hardwareWatch with highest privileges."""
 import ctypes
 import os
 import subprocess
 import sys
 
-TASK_NAME = "HwWatch Hardware Monitor"
+TASK_NAME = "hardwareWatch Hardware Monitor"
 
 
 def is_admin():

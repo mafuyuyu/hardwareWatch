@@ -343,7 +343,7 @@ class MessageWindow(threading.Thread):
     delivered through dispatch() so the caller decides which thread does work.
     """
 
-    CLASS_NAME = "HwWatchMessageWindow"
+    CLASS_NAME = "hardwareWatchMessageWindow"
 
     def __init__(self, dispatch, log=None):
         super().__init__(name="hwwatch-msgwnd", daemon=True)
@@ -358,7 +358,7 @@ class MessageWindow(threading.Thread):
     def run(self):
         try:
             self._create()
-            self._tray_add(self._icon_path, "HwWatch 硬件监控")
+            self._tray_add(self._icon_path, "hardwareWatch 硬件监控")
             self._ready.set()
             self._loop()
         except Exception as exc:  # pragma: no cover - defensive
@@ -394,7 +394,7 @@ class MessageWindow(threading.Thread):
         if not atom and last_error() != 1410:  # ERROR_CLASS_ALREADY_EXISTS
             raise OSError("RegisterClassW failed: " + err_text(last_error()))
         hwnd = user32.CreateWindowExW(
-            0, self.CLASS_NAME, "HwWatch", 0, 0, 0, 0, 0, None, None, hinst, None
+            0, self.CLASS_NAME, "hardwareWatch", 0, 0, 0, 0, 0, None, None, hinst, None
         )
         if not hwnd:
             raise OSError("CreateWindowExW failed: " + err_text(last_error()))
@@ -448,7 +448,7 @@ class MessageWindow(threading.Thread):
         nid.uFlags = NIF_MESSAGE | NIF_ICON | NIF_TIP | NIF_SHOWTIP
         nid.uCallbackMessage = WM_APP + 10
         nid.hIcon = hicon
-        nid.szTip = (tip or "HwWatch")[:127]
+        nid.szTip = (tip or "hardwareWatch")[:127]
         if not shell32.Shell_NotifyIconW(NIM_ADD, ctypes.byref(nid)):
             raise OSError("Shell_NotifyIcon failed: " + err_text(last_error()))
         nid.uTimeoutOrVersion = NOTIFYICON_VERSION_4

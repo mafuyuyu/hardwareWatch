@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-"""Remove the HwWatch logon task."""
+"""Remove the hardwareWatch logon task."""
 import ctypes
 import os
 import subprocess
 import sys
 
-TASK_NAME = "HwWatch Hardware Monitor"
+TASK_NAME = "hardwareWatch Hardware Monitor"
 
 
 def is_admin():

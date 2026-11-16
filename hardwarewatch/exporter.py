@@ -126,7 +126,7 @@ def summarize(rows):
 HTML_HEAD = """<!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HwWatch 硬件事件报告</title>
+<title>hardwareWatch 硬件事件报告</title>
 <style>
 :root{--bg:#f6f7f9;--card:#fff;--ink:#1c2430;--muted:#66707d;--line:#e3e7ec;
 --blue:#2563eb;--red:#dc2626;--amber:#d97706;--green:#059669;}
@@ -163,7 +163,7 @@ tr:hover td{background:#fafcff}
 """
 
 
-def export_html(rows, path, title="HwWatch 硬件事件报告", admin=False):
+def export_html(rows, path, title="hardwareWatch 硬件事件报告", admin=False):
     summary = summarize(rows)
     counts = summary["counts"]
     now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -177,7 +177,7 @@ def export_html(rows, path, title="HwWatch 硬件事件报告", admin=False):
         '<div class="sub">生成时间 %s · 记录区间 %s · 共 %d 条 · %s</div>'
         % (now, _esc(span), len(rows), "管理员模式" if admin else "普通权限（部分事件可能缺失）")
     )
-    parts.append('<div class="hint">本报告由 HwWatch 自动生成。Windows 不公开驱动安装的“发起进程”，'
+    parts.append('<div class="hint">本报告由 hardwareWatch 自动生成。Windows 不公开驱动安装的“发起进程”，'
                  '因此“触发线索”标注了置信度，请结合时间和设备判断。</div>')
     kpi = [
         ("总事件", len(rows)),

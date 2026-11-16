@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Launch HwWatch elevated (UAC) without shell quoting games."""
+"""Launch hardwareWatch elevated (UAC) without shell quoting games."""
 import ctypes
 import os
 import sys

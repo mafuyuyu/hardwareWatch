@@ -12,17 +12,17 @@ import tkinter as tk
 from . import app as appmod
 from . import config, store as storemod, ui, winapi
 
-MUTEX_NAME = "Local\\HwWatch_SingleInstance_v1"
+MUTEX_NAME = "Local\\hardwareWatch_SingleInstance_v1"
 _mutex_handle = None
 
 
 def setup_logging():
-    logger = logging.getLogger("hwwatch")
+    logger = logging.getLogger("hardwarewatch")
     logger.setLevel(logging.INFO)
     if logger.handlers:
         return logger
     handler = logging.handlers.RotatingFileHandler(
-        str(config.log_dir() / "hwwatch.log"),
+        str(config.log_dir() / "hardwarewatch.log"),
         maxBytes=2 * 1024 * 1024,
         backupCount=3,
         encoding="utf-8",
@@ -42,7 +42,7 @@ def _acquire_single_instance():
 
 
 def _focus_existing():
-    hwnd = winapi.user32.FindWindowW(winapi.MessageWindow.CLASS_NAME, "HwWatch")
+    hwnd = winapi.user32.FindWindowW(winapi.MessageWindow.CLASS_NAME, "hardwareWatch")
     if hwnd:
         winapi.user32.PostMessageW(hwnd, winapi.WM_APP_SHOW, 0, 0)
         return True

@@ -487,9 +487,9 @@ def render_report(result, path):
     now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     parts = ["<!DOCTYPE html><html lang='zh-CN'><head><meta charset='utf-8'>",
              "<meta name='viewport' content='width=device-width, initial-scale=1'>",
-             "<title>HwWatch 专项复盘</title><style>", CSS, "</style></head><body><div class='wrap'>"]
+             "<title>hardwareWatch 专项复盘</title><style>", CSS, "</style></head><body><div class='wrap'>"]
     parts.append("<h1>硬件“叮咚”声专项复盘</h1>")
-    parts.append("<div class='sub'>生成时间 %s · 分析范围 %d 天 / %d 条事件 · 由 HwWatch 自动生成</div>"
+    parts.append("<div class='sub'>生成时间 %s · 分析范围 %d 天 / %d 条事件 · 由 hardwareWatch 自动生成</div>"
                  % (now, days, len(rows)))
     parts.append("<div class='card'><h2>结论排序</h2>")
     for hyp in result["hypotheses"]:
@@ -567,13 +567,13 @@ def render_report(result, path):
     parts.append("</div>")
 
     parts.append("<div class='card'><h2>建议的验证实验（按性价比排序）</h2><ol>")
-    parts.append("<li><b>48 小时基线观察</b>：以管理员启动 HwWatch，开启深度归因；每次听到提示音按 Ctrl+Alt+M。"
+    parts.append("<li><b>48 小时基线观察</b>：以管理员启动 hardwareWatch，开启深度归因；每次听到提示音按 Ctrl+Alt+M。"
                  "两三天后导出 HTML，看“标记附近”是否有设备事件。</li>")
     parts.append("<li><b>排除 USB Hub/无线接收器</b>：拔掉外接 USB3 Hub（05E3:0626），罗技接收器直插主板后置口，观察 24 小时。</li>")
     parts.append("<li><b>Xvdd 对照实验</b>：设备管理器里禁用 “Xvdd SCSI Miniport”（或停用它对应的虚拟显示服务），"
                  "观察 24 小时；若提示音消失，再恢复并确认。</li>")
     parts.append("<li><b>蓝牙 PAN 修复</b>：卸载异常设备 “Bluetooth Device (Personal Area Network)” 后重新扫描硬件。</li>")
-    parts.append("<li><b>空记录判据</b>：若某次提示音时 HwWatch 完全无新记录，把系统“设备连接/断开”声音设为“无”，"
+    parts.append("<li><b>空记录判据</b>：若某次提示音时 hardwareWatch 完全无新记录，把系统“设备连接/断开”声音设为“无”，"
                  "若声音随之消失，则说明是某个程序在调用系统音效。</li>")
     parts.append("</ol></div>")
 

@@ -64,7 +64,7 @@ class MainWindow:
     # -- layout ------------------------------------------------------------
     def _build(self, icon_path):
         root = self.root
-        root.title("HwWatch · 硬件与驱动事件记录器")
+        root.title("hardwareWatch · 硬件与驱动事件记录器")
         root.geometry("1200x760+90+70")
         root.minsize(980, 620)
         if icon_path and os.path.exists(icon_path):
@@ -84,7 +84,7 @@ class MainWindow:
         top = ttk.Frame(root, padding=(10, 8, 10, 0))
         top.pack(fill="x")
         ttk.Label(
-            top, text="HwWatch", font=("Microsoft YaHei UI", 14, "bold")
+            top, text="hardwareWatch", font=("Microsoft YaHei UI", 14, "bold")
         ).pack(side="left")
         ttk.Label(
             top,
@@ -479,7 +479,7 @@ class MainWindow:
             messagebox.showinfo(
                 "需要管理员权限",
                 "深度归因会临时开启 Windows 的“进程创建”审计。\n\n"
-                "请关闭本程序，双击 start_hwwatch_admin.bat 以管理员身份启动后再试。",
+                "请关闭本程序，双击 start_hardwarewatch_admin.bat 以管理员身份启动后再试。",
             )
             return
         enabling = not audit.active
@@ -517,7 +517,7 @@ class MainWindow:
     def export_csv(self):
         path = filedialog.asksaveasfilename(
             initialdir=str(config.export_dir()),
-            initialfile="hwwatch_%s.csv" % datetime.datetime.now().strftime("%Y%m%d_%H%M"),
+            initialfile="hardwarewatch_%s.csv" % datetime.datetime.now().strftime("%Y%m%d_%H%M"),
             defaultextension=".csv",
             filetypes=[("CSV 文件", "*.csv")],
             title="导出 CSV",
@@ -535,7 +535,7 @@ class MainWindow:
     def export_html(self):
         path = filedialog.asksaveasfilename(
             initialdir=str(config.export_dir()),
-            initialfile="hwwatch_%s.html" % datetime.datetime.now().strftime("%Y%m%d_%H%M"),
+            initialfile="hardwarewatch_%s.html" % datetime.datetime.now().strftime("%Y%m%d_%H%M"),
             defaultextension=".html",
             filetypes=[("HTML 报告", "*.html")],
             title="导出 HTML 时间线报告",
@@ -562,8 +562,8 @@ class MainWindow:
         self.root.withdraw()
         self._shown = False
         try:
-            self.app.msg.set_tip("HwWatch 正在后台监控 · 双击托盘图标打开")
-            self.app.msg.notify("HwWatch 仍在监控", "窗口已隐藏到托盘，事件会继续记录。")
+            self.app.msg.set_tip("hardwareWatch 正在后台监控 · 双击托盘图标打开")
+            self.app.msg.notify("hardwareWatch 仍在监控", "窗口已隐藏到托盘，事件会继续记录。")
         except Exception:
             pass
 
