@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+import sys
 from pathlib import Path
 
 APP_NAME = "hardwareWatch"
@@ -26,7 +27,16 @@ DEFAULTS = {
 
 
 def app_root():
+    """Directory that holds the launcher / exe (portable data lives beside it)."""
+    if getattr(sys, "frozen", False):
+        return Path(sys.executable).resolve().parent
     return Path(__file__).resolve().parent.parent
+
+
+def resource_path(*parts):
+    """Bundled read-only resources (works both from source and onefile exe)."""
+    base = Path(getattr(sys, "_MEIPASS", app_root()))
+    return base.joinpath(*parts)
 
 
 def is_portable():

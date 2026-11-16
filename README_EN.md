@@ -12,6 +12,15 @@
 
 ![screenshot](docs/screenshot.png)
 
+## 0. Download
+
+- **Portable build (Windows 10/11 x64, no Python needed)**: grab
+  <code>hardwareWatch-v0.1.0-windows-x64.zip</code> from
+  [Releases](https://github.com/mafuyuyu/hardwareWatch/releases/latest) and run
+  <code>hardwareWatch.exe</code>.
+- **From source**: clone the repo and run <code>start_hardwarewatch.bat</code>
+  (Python 3.8+).
+
 ---
 
 ## 1. Why

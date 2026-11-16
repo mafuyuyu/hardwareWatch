@@ -11,6 +11,13 @@
 
 ![界面截图](docs/screenshot.png)
 
+## 0. 下载 / Download
+
+- **免安装版（Windows 10/11 x64，无需 Python）**：到
+  [Releases](https://github.com/mafuyuyu/hardwareWatch/releases/latest) 下载
+  <code>hardwareWatch-v0.1.0-windows-x64.zip</code>，解压后双击 <code>hardwareWatch.exe</code>。
+- **源码运行**：克隆仓库后双击 <code>start_hardwarewatch.bat</code>（需 Python 3.8+）。
+
 ---
 
 ## 1. 它解决什么问题

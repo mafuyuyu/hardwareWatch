@@ -15,6 +15,12 @@ exports/
 _run.out
 portable.txt
 
+# Build / packaging
+build/
+dist/
+release/
+*.spec
+
 # Local tooling / scratch
 .tools/
 _screen.png

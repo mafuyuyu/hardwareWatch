@@ -70,7 +70,7 @@ def main(argv=None):
     application = appmod.App(
         db, settings, on_log=lambda message: logger.info(message)
     )
-    icon = str(config.app_root() / "assets" / "hw.ico")
+    icon = str(config.resource_path("assets", "hw.ico"))
     application.start(icon)
     logger.info("data dir %s", config.data_dir())
     root = tk.Tk()
