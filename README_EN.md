@@ -49,7 +49,7 @@ scheduled task with highest privileges); remove with <code>uninstall_autostart.b
 
 Portable mode: create an empty <code>portable.txt</code> next to the scripts and
 data goes to <code>data/</code>. Default data directory:
-<code>%LOCALAPPDATA%\hardwareWatch\</code> (migrates from the old HwWatch folder on first run).
+<code>%LOCALAPPDATA%\hardwareWatch\ </code> (migrates from the old HwWatch folder on first run).
 
 ## 3. Finding the culprit
 
